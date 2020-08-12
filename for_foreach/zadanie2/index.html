@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List elements displaying after click</title>
+</head>
+
+<body>
+    <script>
+        let size = 10;
+        let orderElement = 1;
+
+        const init = () => {
+            const button = document.createElement('button');
+            const buttonReset = document.createElement('button');
+            button.textContent = "Stwórz listę";
+            buttonReset.textContent = "Wyczyść";
+            document.body.appendChild(button);
+            document.body.appendChild(buttonReset);
+            const ul = document.createElement('ul');
+            ul.style.listStyleType = "none";
+            document.body.appendChild(ul);
+
+            button.addEventListener('click', createLiElements);
+            buttonReset.addEventListener('click', cleanList);
+        }
+
+        const createLiElements = () => {
+            const ul = document.querySelector('ul');
+            for (let i = 0; i < 10; i++) {
+                const li = document.createElement('li');
+                li.textContent = `Element ${orderElement++}`;
+                li.style.fontSize = `${size++}px`;
+                ul.appendChild(li);
+                //size++;
+                //orderElement++;
+            }
+        }
+
+        const cleanList = () => {
+            const ul = document.querySelector('ul');
+            ul.textContent = "";
+            size = 10;
+            orderElement = 1;
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
