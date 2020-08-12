@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar changing its height and color while scrolling</title>
+</head>
+
+<body>
+    <script>
+        document.body.style.height = "10000px";
+        const div = document.createElement('div');
+        document.body.appendChild(div);
+        let size = 10;
+        div.style.position = "fixed";
+        div.style.top = 0;
+        div.style.left = 0;
+        div.style.width = "100%";
+        div.style.height = size + "px";
+        div.style.backgroundColor = "green";
+
+        document.addEventListener('scroll', transformDiv);
+        let isGrowing = true;
+        let viewHeight = window.innerHeight;
+
+        function transformDiv() {
+            if (size >= viewHeight / 2) isGrowing = false;
+            else if (size < 10) isGrowing = true;
+
+            if (isGrowing) {
+                size += 5;
+                div.style.backgroundColor = "green";
+            }
+            if (!isGrowing) {
+                size -= 5;
+                div.style.backgroundColor = "red";
+            }
+            div.style.height = size + "px";
+        }
+    </script>
+</body>
+
+</html>
