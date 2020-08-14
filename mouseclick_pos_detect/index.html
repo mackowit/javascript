@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing bgc while mouse click</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        document.body.addEventListener('click', (e) => {
+            console.log(e.clientX, e.clientY);
+            const x = e.clientX;
+            const y = e.clientY;
+            if(x%2 == 0 && y%2 == 0) document.body.style.backgroundColor = 'red';
+            else if(x%2 != 0 && y%2 != 0) document.body.style.backgroundColor = 'blue';
+            else document.body.style.backgroundColor = 'green';
+        });
+    </script>
+</body>
+
+</html>
