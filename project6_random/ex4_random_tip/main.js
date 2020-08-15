@@ -39,7 +39,6 @@ document.querySelector('.showAdvice').addEventListener('click', showAdvice);
 document.querySelector('.showOptions').addEventListener('click', showOptions);
 
 //losowanie liczb z dowolnego przedziału 4-6
-let number = Math.random() (6-4) + 4;
+let number = Math.random() * (6 - 4) + 4;
 //losowanie liczb 4=<x>=6
-let number = Math.random() (6-4+1) + 4;
-
+let number = Math.random() * (6 - 4 + 1) + 4;
